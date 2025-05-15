@@ -47,8 +47,9 @@
 ```bash
 npm install
 npx expo install expo-sqlite react-native-reanimated @react-native-community/datetimepicker react-native-swipe-list-view dayjs
+```
 
-
+---
 
 # Welcome to your Expo app 👋
 

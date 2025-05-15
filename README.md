@@ -51,7 +51,7 @@ npx expo install expo-sqlite react-native-reanimated @react-native-community/dat
 
 ---
 
-# Welcome to your Expo app 👋
+# Default Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 

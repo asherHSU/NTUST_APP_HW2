@@ -24,7 +24,6 @@
 |--------|----------|----------|----------|
 | ![main](./screenshots/main-light.jpg) | ![dark](./screenshots/main-dark.jpg) | ![add](./screenshots/add.jpg) | ![edit](./screenshots/edit.jpg) |
 
-> 💡請將 `./screenshots` 替換為實際專案中的畫面截圖路徑。
 
 ---
 ## 🙋‍♀️ 開發過程中的挑戰與解法

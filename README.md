@@ -22,9 +22,30 @@
 
 | 主頁面 | 深色模式 | 新增任務 | 編輯任務 |
 |--------|----------|----------|----------|
-| ![main](./screenshots/main-light.png) | ![dark](./screenshots/main-dark.png) | ![add](./screenshots/add.png) | ![edit](./screenshots/edit.png) |
+| ![main](./screenshots/main-light.jpg) | ![dark](./screenshots/main-dark.jpg) | ![add](./screenshots/add.jpg) | ![edit](./screenshots/edit.jpg) |
 
 > 💡請將 `./screenshots` 替換為實際專案中的畫面截圖路徑。
+
+---
+## 🙋‍♀️ 開發過程中的挑戰與解法
+
+### 1. SQLite 資料庫設定問題
+一開始使用 `expo-sqlite` 進行資料儲存時，遇到了 TypeScript 類型錯誤與新版 API 不相容的問題。例如 `openDatabase` 無法正確匯入、`execAsync` 的用法與文件不一致。我後來閱讀了 expo-sqlite 的 changelog，並測試各種寫法，最終成功透過 `openDatabaseSync` 配合 `execAsync` 正確初始化資料庫。
+
+### 2. 編輯與路由動態傳值困難
+在實作編輯頁面 `/edit/[id].tsx` 時，原本無法順利取得該任務的 ID 與資料，導致畫面空白或報錯。我調整了 router 的 useLocalSearchParams 並手動定義 Task 類型，並學會使用 `find(t => String(t.id) === String(id))` 避免型別不一致問題。
+
+### 3. GitHub Actions 自動打包卡關
+我希望將 APK 自動化產出，但一開始在 GitHub Actions 上完全沒反應。後來我建立了 `.github/workflows/eas-build.yml` 檔案，學習使用 EAS CLI 與 Expo Token，並將 secret 加入 GitHub，才讓打包成功自動觸發。最後也成功取得 APK 安裝檔。
+
+### 4. UI 設計與主題一致性
+為了讓 UI 更好看，我參考了柔和藍灰配色設計任務列表與按鈕樣式，但在顏色過深或過亮之間來回調整了很多次。我嘗試將圓圈按鈕、膠囊分類按鈕都統一風格，並使用動畫增強互動感，讓整體視覺與操作更加一致。
+
+---
+
+## 💡 總結心得
+
+雖然這次專案有不少技術細節要克服，從 SQLite 到 GitHub Actions 都需要查文件、debug，甚至換過開發環境（WSL），但也讓我對 React Native 的整合應用與前後端資料處理有更深的理解。完成後看到 APK 成功產出並能安裝，是一個很有成就感的學習過程。
 
 ---
 
@@ -41,6 +62,7 @@
 ---
 
 ## 🚀 快速開始
+📦 [點此下載 APK 安裝檔](https://expo.dev/accounts/asher31892774/projects/MyTodoApp/builds/133d6df8-d529-4cda-ad56-1e7c4dde4a2b)
 
 ### 📦 安裝依賴
 
